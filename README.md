@@ -22,13 +22,17 @@ Un `MANAGER` no solo está limitado por su rol general de "encargado", sino que 
 La API está contenerizada e incluye una base de datos PostgreSQL, listos para correr.
 
 1. Asegúrate de tener Docker y Docker Compose instalados.
-2. Abre la terminal en la raíz de este proyecto.
-3. Ejecuta el siguiente comando para compilar e iniciar los servicios:
+2. Crea un archivo `.env` basado en el ejemplo proporcionado. En la terminal ejecuta:
+   ```bash
+   cp .env.example .env
+   ```
+3. Abre la terminal en la raíz de este proyecto.
+4. Ejecuta el siguiente comando para compilar e iniciar los servicios:
    ```bash
    docker-compose up --build
    ```
-4. La base de datos estará disponible en `localhost:5432` y la API en `localhost:8080`.
-5. Si deseas ejecutarlo en segundo plano, añade el flag `-d`: `docker-compose up -d --build`.
+5. La base de datos estará disponible en `localhost:5432` y la API en `localhost:8080`.
+6. Si deseas ejecutarlo en segundo plano, añade el flag `-d`: `docker-compose up -d --build`.
 
 ## Integración Continua (CI/CD)
 Este proyecto cuenta con un workflow en GitHub Actions que se dispara con cada push a la rama `main`, garantizando que el código compile y pase verificaciones de seguridad usando TruffleHog (para evitar secretos expuestos).
