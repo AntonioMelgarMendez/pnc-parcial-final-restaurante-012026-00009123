@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
+//Prueba
 public interface TableInfoRepository extends JpaRepository<TableInfo, Long> {
     List<TableInfo> findByBranchId(Long branchId);
 }
