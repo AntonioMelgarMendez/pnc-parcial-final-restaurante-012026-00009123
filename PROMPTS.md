@@ -15,7 +15,7 @@
 ## Prompt 3: Seguridad JWT
 - **Prompt:** Implementar seguridad basada en JWT en Spring Boot, incluyendo generación de tokens, validación de Access Token y Refresh Token, el filtro `JwtAuthenticationFilter` y la configuración de seguridad `SecurityConfig`.
 - **Qué generó la IA:** Un sistema de seguridad completo usando las clases de Spring Security 6, permitiendo el acceso público solo a `/api/auth/**`.
-- **Correcciones/Ajustes:** Se verificó que el Refresh Token tenga un tiempo de expiración distinto y mayor al Access Token (15 minutos vs 7 días), como requería el enunciado.
+- **Correcciones/Ajustes:** Se verificó que el Refresh Token tenga un tiempo de expiración distinto y mayor al Access Token (15 minutos vs 7 días), como requería el enunciado. Además, durante la compilación detecté que la IA generó el código usando `authProvider.setUserDetailsService()` para instanciar el `DaoAuthenticationProvider`. Sin embargo, en las últimas versiones de Spring Security, ese setter fue removido y requiere pasarse en el constructor `new DaoAuthenticationProvider(userDetailsService)`. Tuve que corregir manualmente esta línea para que el proyecto compile correctamente.
 
 ## Prompt 4: Lógica de Negocio (Opción B)
 - **Prompt:** Crear `OrderService` donde un Administrador puede ver todo, un Cliente puede ver sus pedidos y un Encargado de turno solo puede acceder y modificar pedidos de su propia sucursal.
